@@ -81,7 +81,6 @@ class hashTable:
 #Each record in the bucket is checked to see if it could fill the now-empty slot
             i = 0
             while len(self.__table[-1]) > i:
-                print(i)
                 finish = self.hashFunc(self.__table[-1][i][0])
                 if finish == baseIndex:
 #If so, the record is added to the table again, and removed from the bucket
@@ -219,12 +218,13 @@ hash.printTable()
 
 hash.rehash()
 
-#Testing for the rehashing method
 smol = hashTable(5, 3, "Smol")
 for i in range(10):
     smol.addMember([i, "Tom", "Dubai"], True)
 smol.printTable()
 smol.rehash()
+x = smol.findMember(1)
+print(x)
 smol.removeMember(1)
+smol.findMember(1)
 smol.printTable()
-smol.rehash()
